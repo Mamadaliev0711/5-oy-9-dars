@@ -16,9 +16,14 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Phone</title>
   </head>
-  <body>
+  <body id="body">
     <div class="container mt-4 mx-auto">
       <h3 class="text-center fs-3">Products</h3>
       <form id="form" class="w-50 mx-auto mb-5">
@@ -31,7 +36,11 @@
             placeholder="Nomini kiriting..."
           />
         </div>
-
+        <button id="toggle-button" class="button">
+          <i class="bi bi-moon"></i>
+          Dark | Light
+          <i class="bi bi-brightness-alt-high"></i>
+        </button>
         <div class="mb-3">
           <label for="price" class="form-label">Narxi*</label>
           <input
@@ -63,6 +72,8 @@
             rows="3"
             placeholder="Izoh kiriting"
           ></textarea>
+          <div class="loader" id="loading"></div>
+
           <button id="btn" class="btn btn-primary w-100">Saqlash</button>
         </div>
       </form>

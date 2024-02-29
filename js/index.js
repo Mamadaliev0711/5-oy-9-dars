@@ -6,11 +6,30 @@ const status = document.getElementById("status");
 const description = document.getElementById("description");
 const price = document.getElementById("price");
 const btn = document.getElementById("btn");
+const loadingElement = document.getElementById("loading");
+const body = document.getElementById("body");
+const savedTheme = localStorage.getItem("theme");
+const theme = savedTheme || "light";
+body.setAttribute("data-theme", theme);
+const toggleButton = document.getElementById("toggle-button");
+
+
+
+toggleButton &&
+  toggleButton.addEventListener("click", function () {
+    const currentTheme = body.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+
+    localStorage.setItem("theme", newTheme);
+
+    body.setAttribute("data-theme", newTheme);
+  });
 
 btn &&
   btn.addEventListener("click", function (e) {
     e.preventDefault();
     btn.setAttribute("disabled", true);
+    loadingElement.style.display = "block"; // Loading elementni ko'rsatish
     const isValid = validate(name, status, description, price);
     btn.innerHTML = "yuborilmoqda...";
     if (isValid) {
@@ -33,16 +52,16 @@ btn &&
         .then((data) => {
           btn.removeAttribute("desabled");
           btn.innerHTML = "Saqlash";
+          loadingElement.style.display = "none "; // Loading elementni yashirish
           if (data.id) {
-            // window.location.reload();
             let row = createRow(data, tbody.childElementCount + 1);
             tbody.innerHTML += row;
           }
         })
         .catch((err) => {
           console.log(err);
+          loadingElement.style.display = "none";
         });
-      //   console.log(data);
     }
   });
 const API = `https://auth-rg69.onrender.com/api/products`;

@@ -1,5 +1,5 @@
 function createRow(phone, index) {
-    return `
+  return `
    <tr>
             <td>${index}.</td>
             <td>${phone.name}</td>
@@ -13,8 +13,8 @@ function createRow(phone, index) {
               <i class="fa-solid fa-trash-can"></i>
             </td >
           </tr>`;
-  }
-  function validate(name, status, description, price) {
-    return true;
-  }
-  export { createRow, validate };
+}
+function validate(name, status, description, price) {
+  return true;
+}
+export { createRow, validate};

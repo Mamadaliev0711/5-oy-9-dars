@@ -1,0 +1,48 @@
+body[data-theme="dark"] {
+  background-color: #333;
+  color: #fff;
+}
+
+.loader {
+  width: 15px;
+  display: none;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 315px;
+  animation: l5 1s infinite linear alternate;
+}
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #000;
+  }
+  33% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #0002;
+  }
+  66% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #0002;
+  }
+  100% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #000;
+  }
+}
+.btn {
+  margin-top: 10px;
+}
+.button {
+  padding: 8px;
+  border-radius: 5px;
+  background: #fff;
+  position: absolute;
+  border: 1px solid rgb(146, 146, 146);
+  transform: translateX(510px) translateY(-130px);
+}
+button:hover {
+  color: #000000;
+  cursor: pointer;
+}
